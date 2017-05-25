@@ -46,4 +46,13 @@ end
 
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below
-set :port, 4567
+set :port, 8080
+
+# --- DEPLOYMENT ---------------------------------------------------------------
+
+activate :deploy do |deploy|
+  deploy.build_before = true # runs build before deploying
+  deploy.deploy_method = :git
+  deploy.branch = 'master'
+  deploy.remote = 'https://github.com/bio-gen/api-docs.git'
+end
